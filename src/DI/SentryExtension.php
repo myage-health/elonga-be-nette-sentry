@@ -35,7 +35,7 @@ class SentryExtension extends CompilerExtension
 
         $this->getContainerBuilder()
             ->addDefinition($this->prefix('logger'))
-            ->setFactory(\Rootpd\NetteSentry\SentryLogger::class)
+            ->setFactory(\Rootpd\NetteSentry\SentryLogger::class, [Debugger::$logDirectory])
             ->addSetup(
                 'register',
                 [
